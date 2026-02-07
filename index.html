@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komşu Depo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              deepTeal: {
+                DEFAULT: 'rgb(var(--color-deep-teal) / <alpha-value>)',
+                light: 'rgb(var(--color-deep-teal-light) / <alpha-value>)',
+                dark: '#004E56',
+                900: 'rgb(var(--bg-main) / <alpha-value>)' // Dynamic Background
+              },
+              softSand: {
+                DEFAULT: 'rgb(var(--text-main) / <alpha-value>)', // Dynamic Text
+                dim: '#DDE9ED',
+                dark: '#83C5BE'
+              },
+              glass: {
+                surface: 'rgba(var(--glass-surface) / 0.8)', // Dynamic Glass
+                border: 'rgba(var(--glass-border) / 1)',
+                highlight: 'rgba(var(--glass-highlight) / 1)'
+              }
+            },
+            backdropBlur: {
+              xs: '2px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* LIGHT MODE - ELEGANT & INNOVATIVE */
+        --bg-main: 246 251 252;      /* Cool Minty White */
+        --text-main: 21 66 76;       /* Deep Charcoal Teal */
+        
+        --color-deep-teal: 255 255 255; /* White (For Text on Dark Buttons) */
+        --color-deep-teal-light: 8 145 178; /* Vibrant Teal (For Accents) */
+
+        --glass-surface: 255 255 255; 
+        --glass-border: 198 227 233; /* Soft Teal Border */
+        --glass-highlight: 236 254 255;
+      }
+
+      .dark {
+        /* DARK MODE COLORS - PRESERVED */
+        --bg-main: 0 40 44;      /* #00282C */
+        --text-main: 237 246 249; /* #EDF6F9 */
+        
+        --color-deep-teal: 0 109 119; /* #006D77 */
+        --color-deep-teal-light: 42 138 146; /* #2A8A92 */
+
+        --glass-surface: 255 255 255; 
+        --glass-border: 255 255 255; 
+        --glass-highlight: 255 255 255;
+      }
+
+      /* Specific adjustments for opacity in Tailwind config */
+      .dark .bg-glass-surface {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+      }
+      .dark .border-glass-border {
+         border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .dark .hover\:bg-glass-highlight:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      /* Light mode glass specific overrides for better visibility */
+      :root:not(.dark) .bg-glass-surface {
+        background-color: rgba(255, 255, 255, 0.85) !important;
+        box-shadow: 
+            0 10px 30px -5px rgba(21, 66, 76, 0.05),
+            0 4px 6px -2px rgba(21, 66, 76, 0.02),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(16px);
+      }
+      :root:not(.dark) .border-glass-border {
+        border-color: rgba(8, 145, 178, 0.15) !important;
+      }
+      :root:not(.dark) .hover\:bg-glass-highlight:hover {
+        background-color: rgba(224, 242, 254, 0.6) !important; /* Light blue tint on hover */
+      }
+
+      body {
+        background-color: rgb(var(--bg-main));
+        color: rgb(var(--text-main));
+        -webkit-font-smoothing: antialiased;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Innovative Light Mode Background Pattern */
+      :root:not(.dark) body {
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(8, 145, 178, 0.08), transparent 25%), 
+            radial-gradient(circle at 85% 30%, rgba(45, 212, 191, 0.08), transparent 25%);
+        background-attachment: fixed;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: rgb(var(--bg-main));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2A8A92;
+        border-radius: 3px;
+      }
+      
+      /* Map Pattern Background */
+      .map-bg {
+        background-color: rgb(var(--bg-main));
+        background-image: radial-gradient(rgba(42, 138, 146, 0.3) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0"
+  }
+}
+</script>
+<script type="module" src="./index.tsx"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
